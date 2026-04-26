@@ -18,7 +18,8 @@ This project demonstrates a complete perception-to-action pipeline in robotics u
 Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
 
 ## 🎥 Demo
-(Add demo video here)
+<img width="1058" height="942" alt="image" src="https://github.com/user-attachments/assets/ccfe0534-5ba4-4e74-90d3-4f0326f399ea" />
+
 
 ## 🚀 Future Scope
 - Object tracking
