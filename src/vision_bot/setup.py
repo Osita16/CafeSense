@@ -23,7 +23,9 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': [
-        ],
-    },
+    'console_scripts': [
+        'detector_node = vision_bot.detector_node:main',
+        'controller_node = vision_bot.controller_node:main',
+    ],
+},
 )

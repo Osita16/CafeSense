@@ -1,0 +1,4 @@
+[console_scripts]
+controller_node = vision_bot.controller_node:main
+detector_node = vision_bot.detector_node:main
+
