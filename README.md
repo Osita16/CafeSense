@@ -1,27 +1,118 @@
-# ROS2 Vision Control Pipeline 🚀
+# ☕ CafeSense: Vision-Guided Autonomous Robot System 🚀
 
-This project demonstrates a complete perception-to-action pipeline in robotics using ROS2, Gazebo, and YOLO.
+This project demonstrates a complete **perception-to-action pipeline** in robotics using ROS2, Gazebo, and YOLOv8.
+A robot detects objects in real-time and reacts autonomously inside a simulated cafe environment.
+
+---
 
 ## 🔥 Features
-- Real-time object detection using YOLOv8
-- ROS2 node-based architecture
-- Autonomous robot response to detected objects
-- Simulation in Gazebo (Cafe environment)
+
+* 👁️ Real-time object detection using YOLOv8
+* 🤖 Autonomous robot response based on visual input
+* 🔄 ROS2 node-based modular architecture
+* 🌍 Simulation in Gazebo (Cafe environment)
+* ⚡ End-to-end perception → action pipeline
+
+---
 
 ## ⚙️ Tech Stack
-- ROS2 Humble
-- Gazebo
-- OpenCV
-- YOLOv8
 
-## 🔄 Pipeline
+* ROS2 Humble
+* Gazebo
+* OpenCV
+* YOLOv8 (Ultralytics)
+* Python
+
+---
+
+## 🔄 System Pipeline
+
+```
 Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
+```
+
+---
+
+## 📦 Installation
+
+```bash
+# Create workspace
+mkdir -p ~/sim_ws/src
+cd ~/sim_ws/src
+
+# Clone repository
+git clone https://github.com/Osita16/CafeSense.git
+
+# Build workspace
+cd ~/sim_ws
+colcon build
+source install/setup.bash
+```
+
+---
+
+## ▶️ How to Run
+
+### 1️⃣ Launch Cafe Environment
+
+```bash
+ros2 launch gazebo_ros gazebo.launch.py world:=/usr/share/gazebo-11/worlds/cafe.world
+```
+
+### 2️⃣ Spawn Robot
+
+```bash
+export TURTLEBOT3_MODEL=burger
+
+ros2 run gazebo_ros spawn_entity.py \
+-file /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_burger/model.sdf \
+-entity tb3
+```
+
+### 3️⃣ Run Vision Node
+
+```bash
+ros2 run vision_bot detector
+```
+
+### 4️⃣ Run Control Node
+
+```bash
+ros2 run vision_bot controller
+```
+
+---
+
+## 🎯 Expected Output
+
+* Robot detects objects in real-time
+* Publishes object position via ROS2
+* Moves based on detected object location
+
+---
 
 ## 🎥 Demo
+
 <img width="1058" height="942" alt="image" src="https://github.com/user-attachments/assets/ccfe0534-5ba4-4e74-90d3-4f0326f399ea" />
 
+---
 
 ## 🚀 Future Scope
-- Object tracking
-- Integration with Nav2
-- Real robot deployment
+
+* Object-specific tracking
+* Smooth motion control (PID / filtering)
+* Integration with Nav2
+* Deployment on real robot
+
+---
+
+## 🧾 Author
+
+**Osita Bharti**
+Robotics | ROS2 | Autonomous Systems
+
+---
+
+## ⭐ Support
+
+If you found this useful, consider giving it a ⭐
