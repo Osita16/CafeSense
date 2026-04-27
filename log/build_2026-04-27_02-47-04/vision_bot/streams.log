@@ -1,0 +1,22 @@
+[2.554s] Invoking command in '/home/oshii/sim_ws/src/vision_bot': PYTHONPATH=/home/oshii/sim_ws/build/vision_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_bot build --build-base /home/oshii/sim_ws/build/vision_bot/build install --record /home/oshii/sim_ws/build/vision_bot/install.log --single-version-externally-managed install_data
+[3.060s] running egg_info
+[3.061s] writing ../../build/vision_bot/vision_bot.egg-info/PKG-INFO
+[3.077s] writing dependency_links to ../../build/vision_bot/vision_bot.egg-info/dependency_links.txt
+[3.078s] writing entry points to ../../build/vision_bot/vision_bot.egg-info/entry_points.txt
+[3.086s] writing requirements to ../../build/vision_bot/vision_bot.egg-info/requires.txt
+[3.088s] writing top-level names to ../../build/vision_bot/vision_bot.egg-info/top_level.txt
+[3.095s] reading manifest file '../../build/vision_bot/vision_bot.egg-info/SOURCES.txt'
+[3.104s] writing manifest file '../../build/vision_bot/vision_bot.egg-info/SOURCES.txt'
+[3.104s] running build
+[3.104s] running build_py
+[3.104s] running install
+[3.105s] running install_lib
+[3.118s] running install_data
+[3.118s] running install_egg_info
+[3.118s] removing '/home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages/vision_bot-0.0.0-py3.10.egg-info' (and everything under it)
+[3.119s] Copying ../../build/vision_bot/vision_bot.egg-info to /home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages/vision_bot-0.0.0-py3.10.egg-info
+[3.122s] running install_scripts
+[3.181s] Installing controller_node script to /home/oshii/sim_ws/install/vision_bot/lib/vision_bot
+[3.181s] Installing detector_node script to /home/oshii/sim_ws/install/vision_bot/lib/vision_bot
+[3.181s] writing list of installed files to '/home/oshii/sim_ws/build/vision_bot/install.log'
+[3.202s] Invoked command in '/home/oshii/sim_ws/src/vision_bot' returned '0': PYTHONPATH=/home/oshii/sim_ws/build/vision_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_bot build --build-base /home/oshii/sim_ws/build/vision_bot/build install --record /home/oshii/sim_ws/build/vision_bot/install.log --single-version-externally-managed install_data

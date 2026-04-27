@@ -1,0 +1,75 @@
+[0.000000] (-) TimerEvent: {}
+[0.018793] (vision_bot) JobQueued: {'identifier': 'vision_bot', 'dependencies': OrderedDict()}
+[0.028704] (vision_bot) JobStarted: {'identifier': 'vision_bot'}
+[0.150740] (-) TimerEvent: {}
+[0.257302] (-) TimerEvent: {}
+[0.357775] (-) TimerEvent: {}
+[0.461323] (-) TimerEvent: {}
+[0.562384] (-) TimerEvent: {}
+[0.663271] (-) TimerEvent: {}
+[0.764719] (-) TimerEvent: {}
+[0.865781] (-) TimerEvent: {}
+[0.966412] (-) TimerEvent: {}
+[1.069855] (-) TimerEvent: {}
+[1.171333] (-) TimerEvent: {}
+[1.272497] (-) TimerEvent: {}
+[1.373208] (-) TimerEvent: {}
+[1.474747] (-) TimerEvent: {}
+[1.578872] (-) TimerEvent: {}
+[1.693957] (-) TimerEvent: {}
+[1.794853] (-) TimerEvent: {}
+[1.895564] (-) TimerEvent: {}
+[1.996353] (-) TimerEvent: {}
+[2.100949] (-) TimerEvent: {}
+[2.201800] (-) TimerEvent: {}
+[2.303991] (-) TimerEvent: {}
+[2.405973] (-) TimerEvent: {}
+[2.506865] (-) TimerEvent: {}
+[2.609432] (-) TimerEvent: {}
+[2.710701] (-) TimerEvent: {}
+[2.812685] (-) TimerEvent: {}
+[3.229445] (-) TimerEvent: {}
+[3.332608] (-) TimerEvent: {}
+[3.434347] (-) TimerEvent: {}
+[3.535393] (-) TimerEvent: {}
+[3.640544] (-) TimerEvent: {}
+[3.871432] (-) TimerEvent: {}
+[3.957536] (vision_bot) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/vision_bot', 'build', '--build-base', '/home/oshii/sim_ws/build/vision_bot/build', 'install', '--record', '/home/oshii/sim_ws/build/vision_bot/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/oshii/sim_ws/src/vision_bot', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_IN:en', 'USER': 'oshii', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/oshii', 'OLDPWD': '/home/oshii/sim_ws', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2342', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/oshii/navforge_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'oshii', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'oshii', 'TERM': 'xterm-256color', 'GAZEBO_MODEL_PATH': '/home/oshii/.gazebo/models:/home/oshii/.gazebo/models', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/home/oshii/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/oshii:@/tmp/.ICE-unix/1804,unix/oshii:/tmp/.ICE-unix/1804', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/f820ab36_deba_4a13_be4f_d26d61aba8b3', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.61QZN3', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.99', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/oshii/navforge_ws/install/navforge_description:/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GAZEBO_RESOURCE_PATH': '/usr/share/gazebo-11', 'GAZEBO_MODEL_DATABASE_URI': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/oshii/sim_ws/build/vision_bot', 'TURTLEBOT3_MODEL': 'burger', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/local/share/:/usr/share/', 'PYTHONPATH': '/home/oshii/sim_ws/build/vision_bot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/oshii/navforge_ws/install/navforge_description'}, 'shell': False}
+[3.979178] (-) TimerEvent: {}
+[4.082591] (-) TimerEvent: {}
+[4.209919] (-) TimerEvent: {}
+[4.312747] (-) TimerEvent: {}
+[4.419537] (-) TimerEvent: {}
+[4.521275] (-) TimerEvent: {}
+[4.633011] (-) TimerEvent: {}
+[4.734627] (-) TimerEvent: {}
+[4.839654] (-) TimerEvent: {}
+[4.944356] (-) TimerEvent: {}
+[5.048341] (-) TimerEvent: {}
+[5.236179] (-) TimerEvent: {}
+[5.282052] (vision_bot) StdoutLine: {'line': b'running egg_info\n'}
+[5.283322] (vision_bot) StdoutLine: {'line': b'writing ../../build/vision_bot/vision_bot.egg-info/PKG-INFO\n'}
+[5.287232] (vision_bot) StdoutLine: {'line': b'writing dependency_links to ../../build/vision_bot/vision_bot.egg-info/dependency_links.txt\n'}
+[5.287384] (vision_bot) StdoutLine: {'line': b'writing entry points to ../../build/vision_bot/vision_bot.egg-info/entry_points.txt\n'}
+[5.287537] (vision_bot) StdoutLine: {'line': b'writing requirements to ../../build/vision_bot/vision_bot.egg-info/requires.txt\n'}
+[5.287634] (vision_bot) StdoutLine: {'line': b'writing top-level names to ../../build/vision_bot/vision_bot.egg-info/top_level.txt\n'}
+[5.290333] (vision_bot) StdoutLine: {'line': b"reading manifest file '../../build/vision_bot/vision_bot.egg-info/SOURCES.txt'\n"}
+[5.291971] (vision_bot) StdoutLine: {'line': b"writing manifest file '../../build/vision_bot/vision_bot.egg-info/SOURCES.txt'\n"}
+[5.293285] (vision_bot) StdoutLine: {'line': b'running build\n'}
+[5.293443] (vision_bot) StdoutLine: {'line': b'running build_py\n'}
+[5.296532] (vision_bot) StdoutLine: {'line': b'running install\n'}
+[5.296921] (vision_bot) StdoutLine: {'line': b'running install_lib\n'}
+[5.297014] (vision_bot) StdoutLine: {'line': b'running install_data\n'}
+[5.297139] (vision_bot) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.302155] (vision_bot) StdoutLine: {'line': b"removing '/home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages/vision_bot-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[5.302819] (vision_bot) StdoutLine: {'line': b'Copying ../../build/vision_bot/vision_bot.egg-info to /home/oshii/sim_ws/install/vision_bot/lib/python3.10/site-packages/vision_bot-0.0.0-py3.10.egg-info\n'}
+[5.304420] (vision_bot) StdoutLine: {'line': b'running install_scripts\n'}
+[5.336399] (-) TimerEvent: {}
+[5.447369] (-) TimerEvent: {}
+[5.528589] (vision_bot) StdoutLine: {'line': b'Installing controller_node script to /home/oshii/sim_ws/install/vision_bot/lib/vision_bot\n'}
+[5.531044] (vision_bot) StdoutLine: {'line': b'Installing detector_node script to /home/oshii/sim_ws/install/vision_bot/lib/vision_bot\n'}
+[5.531153] (vision_bot) StdoutLine: {'line': b"writing list of installed files to '/home/oshii/sim_ws/build/vision_bot/install.log'\n"}
+[5.593897] (vision_bot) CommandEnded: {'returncode': 0}
+[5.596033] (-) TimerEvent: {}
+[5.643537] (vision_bot) JobEnded: {'identifier': 'vision_bot', 'rc': 0}
+[5.644527] (-) EventReactorShutdown: {}
