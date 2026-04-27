@@ -72,13 +72,13 @@ ros2 run gazebo_ros spawn_entity.py \
 ### 3️⃣ Run Vision Node
 
 ```bash
-ros2 run vision_bot detector
+ros2 run vision_bot detector_node
 ```
 
 ### 4️⃣ Run Control Node
 
 ```bash
-ros2 run vision_bot controller
+ros2 run vision_bot controller_node
 ```
 
 ---
