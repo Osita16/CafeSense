@@ -7,6 +7,8 @@ class Controller(Node):
     def __init__(self):
         super().__init__('controller_node')
 
+        self.get_logger().info("🤖 Controller Node Started")
+
         self.sub = self.create_subscription(
             String,
             '/object_position',
@@ -17,21 +19,37 @@ class Controller(Node):
         self.pub = self.create_publisher(Twist, '/cmd_vel', 10)
 
     def callback(self, msg):
-        cx = int(msg.data)
+        try:
+            cx = int(msg.data)
 
-        cmd = Twist()
+            cmd = Twist()
 
-        if cx < 300:
-            cmd.angular.z = 0.5
-        elif cx > 340:
-            cmd.angular.z = -0.5
-        else:
-            cmd.linear.x = 0.2
+            # Frame center assumption (~640 width → center ≈ 320)
+            if cx < 300:
+                cmd.angular.z = 0.5
+                self.get_logger().info(f"⬅️ Object Left ({cx}) → Turning Left")
 
-        self.pub.publish(cmd)
+            elif cx > 340:
+                cmd.angular.z = -0.5
+                self.get_logger().info(f"➡️ Object Right ({cx}) → Turning Right")
+
+            else:
+                cmd.linear.x = 0.2
+                self.get_logger().info(f"⬆️ Object Center ({cx}) → Moving Forward")
+
+            self.pub.publish(cmd)
+
+        except Exception as e:
+            self.get_logger().error(f"❌ Error: {e}")
 
 def main():
     rclpy.init()
     node = Controller()
-    rclpy.spin(node)
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+
+    node.destroy_node()
     rclpy.shutdown()

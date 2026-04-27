@@ -1,8 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image
 from std_msgs.msg import String
-from cv_bridge import CvBridge
 from ultralytics import YOLO
 import cv2
 
@@ -10,37 +8,33 @@ class Detector(Node):
     def __init__(self):
         super().__init__('detector_node')
 
-        self.get_logger().info("🚀 Detector Node Started")
+        self.get_logger().info("🚀 Detector Node Started (Webcam Mode)")
 
-        self.bridge = CvBridge()
-
-        # Load YOLO model
+        # Load YOLO
         try:
             self.model = YOLO("yolov8n.pt")
             self.get_logger().info("✅ YOLO model loaded")
         except Exception as e:
             self.get_logger().error(f"❌ YOLO load failed: {e}")
 
-        # Subscriber
-        self.sub = self.create_subscription(
-            Image,
-            '/camera/image_raw',
-            self.callback,
-            10
-        )
+        # Webcam
+        self.cap = cv2.VideoCapture(0)
 
         # Publisher
         self.pub = self.create_publisher(String, '/object_position', 10)
 
-    def callback(self, msg):
-        self.get_logger().info("📸 Image received")
+        # Timer instead of ROS subscription
+        self.timer = self.create_timer(0.1, self.detect)
+
+    def detect(self):
+        ret, frame = self.cap.read()
+
+        if not ret:
+            self.get_logger().warn("⚠️ Camera not working")
+            return
 
         try:
-            # Convert ROS image → OpenCV
-            frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-
-            # Run YOLO
-            results = self.model(frame, stream=True)
+            results = self.model(frame)
 
             detected = False
 
@@ -54,14 +48,14 @@ class Detector(Node):
                     cx = (x1 + x2) // 2
                     cy = (y1 + y2) // 2
 
-                    # Publish center x
-                    out = String()
-                    out.data = str(cx)
-                    self.pub.publish(out)
+                    # Publish position
+                    msg = String()
+                    msg.data = str(cx)
+                    self.pub.publish(msg)
 
                     self.get_logger().info(f"📍 Object at x={cx}")
 
-                    # Draw point
+                    # Draw
                     cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
 
                     detected = True
@@ -69,12 +63,11 @@ class Detector(Node):
             if not detected:
                 self.get_logger().info("⚠️ No object detected")
 
-            # Show window
             cv2.imshow("YOLO Detection", frame)
             cv2.waitKey(1)
 
         except Exception as e:
-            self.get_logger().error(f"❌ Error in callback: {e}")
+            self.get_logger().error(f"❌ Detection error: {e}")
 
 def main():
     rclpy.init()
@@ -85,6 +78,7 @@ def main():
     except KeyboardInterrupt:
         pass
 
+    node.cap.release()
+    cv2.destroyAllWindows()
     node.destroy_node()
     rclpy.shutdown()
-    cv2.destroyAllWindows()
