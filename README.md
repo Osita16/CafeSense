@@ -1,7 +1,7 @@
 # ☕ CafeSense: Vision-Guided Autonomous Robot System 🚀
 
-This project demonstrates a complete **perception-to-action pipeline** in robotics using ROS2, Gazebo, and YOLOv8.
-A robot detects objects in real-time and reacts autonomously inside a simulated cafe environment.
+A complete **perception-to-action pipeline** built using ROS2, Gazebo, and YOLOv8.
+The robot perceives its environment through a simulated camera, detects objects in real-time, and reacts autonomously inside a cafe environment.
 
 ---
 
@@ -9,7 +9,7 @@ A robot detects objects in real-time and reacts autonomously inside a simulated 
 
 * 👁️ Real-time object detection using YOLOv8
 * 🤖 Autonomous robot response based on visual input
-* 🔄 ROS2 node-based modular architecture
+* 🔄 ROS2 modular node architecture
 * 🌍 Simulation in Gazebo (Cafe environment)
 * ⚡ End-to-end perception → action pipeline
 
@@ -28,7 +28,7 @@ A robot detects objects in real-time and reacts autonomously inside a simulated 
 ## 🔄 System Pipeline
 
 ```
-Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
+Gazebo Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
 ```
 
 ---
@@ -51,15 +51,20 @@ source install/setup.bash
 
 ---
 
-## ▶️ How to Run
+## ▶️ How to Run (Complete Pipeline)
 
-### 1️⃣ Launch Cafe Environment
+### 1️⃣ Launch Gazebo Cafe World
 
 ```bash
+cd ~/sim_ws
+source install/setup.bash
+
 ros2 launch gazebo_ros gazebo.launch.py world:=/usr/share/gazebo-11/worlds/cafe.world
 ```
 
-### 2️⃣ Spawn Robot
+---
+
+### 2️⃣ Spawn TurtleBot3
 
 ```bash
 export TURTLEBOT3_MODEL=burger
@@ -69,25 +74,53 @@ ros2 run gazebo_ros spawn_entity.py \
 -entity tb3
 ```
 
-### 3️⃣ Run Vision Node
+---
+
+### 3️⃣ Verify Camera Topic
 
 ```bash
-ros2 run vision_bot detector_node
+ros2 topic list | grep camera
 ```
 
-### 4️⃣ Run Control Node
+Expected:
+
+```
+/camera/camera/image_raw
+```
+
+(Optional visual check)
 
 ```bash
-ros2 run vision_bot controller_node
+rqt_image_view
+```
+
+---
+
+### 4️⃣ Run Vision Node (YOLO)
+
+```bash
+cd ~/sim_ws
+source install/setup.bash
+
+ros2 run vision_bot detector
+```
+
+---
+
+### 5️⃣ Run Controller Node
+
+```bash
+ros2 run vision_bot controller
 ```
 
 ---
 
 ## 🎯 Expected Output
 
-* Robot detects objects in real-time
-* Publishes object position via ROS2
-* Moves based on detected object location
+* Robot receives camera feed from Gazebo
+* YOLO detects objects in real-time
+* Object position is published to `/object_position`
+* Robot moves based on detected object location
 
 ---
 
