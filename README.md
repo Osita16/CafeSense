@@ -1,7 +1,7 @@
 # ☕ CafeSense: Vision-Guided Autonomous Robot System 🚀
 
-A complete **perception-to-action pipeline** built using ROS2, Gazebo, and YOLOv8.
-The robot perceives its environment through a simulated camera, detects objects in real-time, and reacts autonomously inside a cafe environment.
+This project demonstrates a complete **perception-to-action pipeline** in robotics using ROS2, Gazebo, and YOLOv8.
+A robot detects objects in real-time and reacts autonomously inside a simulated cafe environment.
 
 ---
 
@@ -9,9 +9,10 @@ The robot perceives its environment through a simulated camera, detects objects 
 
 * 👁️ Real-time object detection using YOLOv8
 * 🤖 Autonomous robot response based on visual input
-* 🔄 ROS2 modular node architecture
+* 🔄 ROS2 node-based modular architecture
 * 🌍 Simulation in Gazebo (Cafe environment)
 * ⚡ End-to-end perception → action pipeline
+* 🔧 Custom robot (Medibot URDF with LiDAR + Camera integration)
 
 ---
 
@@ -28,7 +29,7 @@ The robot perceives its environment through a simulated camera, detects objects 
 ## 🔄 System Pipeline
 
 ```
-Gazebo Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
+Camera → YOLO Detection → ROS2 Topic → Controller → Robot Motion
 ```
 
 ---
@@ -51,18 +52,15 @@ source install/setup.bash
 
 ---
 
-## ▶️ How to Run (Complete Pipeline)
+# ▶️ Running the Project
 
-### 1️⃣ Launch Gazebo Cafe World
+## 🟢 Option 1: TurtleBot3 (Standard Demo)
+
+### 1️⃣ Launch Cafe World
 
 ```bash
-cd ~/sim_ws
-source install/setup.bash
-
 ros2 launch gazebo_ros gazebo.launch.py world:=/usr/share/gazebo-11/worlds/cafe.world
 ```
-
----
 
 ### 2️⃣ Spawn TurtleBot3
 
@@ -76,7 +74,37 @@ ros2 run gazebo_ros spawn_entity.py \
 
 ---
 
-### 3️⃣ Verify Camera Topic
+## 🔧 Option 2: Custom Medibot (Recommended)
+
+### 1️⃣ Build Medibot Workspace
+
+```bash
+cd ~/medibot_ws
+colcon build
+source install/setup.bash
+```
+
+---
+
+### 2️⃣ Launch Cafe World
+
+```bash
+ros2 launch gazebo_ros gazebo.launch.py world:=/usr/share/gazebo-11/worlds/cafe.world
+```
+
+---
+
+### 3️⃣ Spawn Medibot
+
+```bash
+ros2 run gazebo_ros spawn_entity.py \
+-file ~/medibot_ws/src/medibot_description/urdf/medibot.urdf \
+-entity medibot
+```
+
+---
+
+### 4️⃣ Verify Camera Topic
 
 ```bash
 ros2 topic list | grep camera
@@ -88,26 +116,17 @@ Expected:
 /camera/camera/image_raw
 ```
 
-(Optional visual check)
-
-```bash
-rqt_image_view
-```
-
 ---
 
-### 4️⃣ Run Vision Node (YOLO)
+## 🧠 Run Perception + Control
+
+### Vision Node (YOLO)
 
 ```bash
-cd ~/sim_ws
-source install/setup.bash
-
 ros2 run vision_bot detector
 ```
 
----
-
-### 5️⃣ Run Controller Node
+### Control Node
 
 ```bash
 ros2 run vision_bot controller
@@ -117,10 +136,9 @@ ros2 run vision_bot controller
 
 ## 🎯 Expected Output
 
-* Robot receives camera feed from Gazebo
-* YOLO detects objects in real-time
-* Object position is published to `/object_position`
-* Robot moves based on detected object location
+* Robot detects objects in real-time
+* Publishes object position via ROS2
+* Moves toward detected object
 
 ---
 
